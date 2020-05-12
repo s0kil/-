@@ -1,4 +1,4 @@
-# elam (Eight + Lambda)
+# elam
 
 Educational Library For Functional Programming In JavaScript
 
