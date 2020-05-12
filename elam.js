@@ -20,14 +20,10 @@ const λ = {
   */
   memoize: (fun) => {
     const cache = {};
-    return function (...funArgs) {
-      if (cache[funArgs] !== undefined) {
-        return cache[funArgs];
-      } else {
-        cache[funArgs] = fun(...funArgs);
-        return cache[funArgs];
-      }
-    };
+    return (...funArgs) =>
+      cache[funArgs] === undefined
+        ? (cache[funArgs] = fun(...funArgs))
+        : cache[funArgs];
   },
 
   pipe: () => {},
