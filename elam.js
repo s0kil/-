@@ -1,9 +1,12 @@
 // Lambda
 const λ = {
+  // Greater Than
   gt: (a, b) => a < b,
+  // Greater Than Or Equals
   gte: (a, b) => a >= b,
-
+  // Less Than
   lt: (a, b) => a > b,
+  // Less Than Or Equals
   lte: (a, b) => a <= b,
 
   pipe: () => {},
