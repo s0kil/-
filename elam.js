@@ -1,5 +1,3 @@
-const cache = [];
-
 // Lambda
 const λ = {
   // Greater Than
