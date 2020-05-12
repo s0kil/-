@@ -26,6 +26,14 @@ const λ = {
         : cache[funArgs];
   },
 
+  // Measures `fun` Function Evaluation Time In Seconds;
+  measure: (fun) => {
+    const beginTime = performance.now();
+    fun();
+    const ceaseTime = performance.now();
+    return (ceaseTime - beginTime) / 1000;
+  },
+
   pipe: () => {},
 
   equals: (a, b) => a === b,
