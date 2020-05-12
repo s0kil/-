@@ -12,7 +12,14 @@ const λ = {
   // Less Than Or Equals
   lte: (a, b) => a <= b,
 
-  // Memoization
+  /* Memoization
+  I:
+    Accepts A Function `fun` as arguments
+  O:
+    Returns An Anonymous Function That Accepts Multiple Arguments `funArgs`
+    When `funArgs` Is Not Memoized (Cached), Then Evaluate The Function `fun` With The Arguments `funArgs` And Memoize The Result
+    Otherwise Return The Memoized Computation With The Arguments `funArgs` As Cache Identifier `cache[funArgs]`
+  */
   memoize: (fun) => {
     const cache = {};
     return function (...funArgs) {
