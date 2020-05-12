@@ -1,13 +1,29 @@
+const cache = [];
+
 // Lambda
 const λ = {
   // Greater Than
   gt: (a, b) => a < b,
   // Greater Than Or Equals
   gte: (a, b) => a >= b,
+
   // Less Than
   lt: (a, b) => a > b,
   // Less Than Or Equals
   lte: (a, b) => a <= b,
+
+  // Memoization
+  memoize: (fun) => {
+    const cache = {};
+    return function (...funArgs) {
+      if (cache[funArgs] !== undefined) {
+        return cache[funArgs];
+      } else {
+        cache[funArgs] = fun(...funArgs);
+        return cache[funArgs];
+      }
+    };
+  },
 
   pipe: () => {},
 
@@ -30,4 +46,4 @@ const λ = {
     predicate(input) ? reducingFunction(result, input) : result,
 };
 
-module.exports = Object.freeze(λ);
+export default Object.freeze(λ);
