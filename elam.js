@@ -21,6 +21,14 @@ const λ = {
     return (cease - begin) / 1000;
   },
 
+  map: (collection, callback) => {
+    const result = [];
+    for (const index in collection) {
+      result.push(callback(collection[index], index, collection));
+    }
+    return result;
+  },
+
   filter: (collection, predicate) => {
     const result = [];
     for (const item of collection) {
