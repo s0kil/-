@@ -1,23 +1,11 @@
 // Lambda
 const λ = {
-  // Greater Than
   gt: (a, b) => a < b,
-  // Greater Than Or Equals
   gte: (a, b) => a >= b,
 
-  // Less Than
   lt: (a, b) => a > b,
-  // Less Than Or Equals
   lte: (a, b) => a <= b,
 
-  /* Memoization
-  I:
-    Accepts A Function `fun` as arguments
-  O:
-    Returns An Anonymous Function That Accepts Multiple Arguments `funArgs`
-    When `funArgs` Is Not Memoized (Cached), Then Evaluate The Function `fun` With The Arguments `funArgs` And Memoize The Result
-    Otherwise Return The Memoized Computation With The Arguments `funArgs` As Cache Identifier `cache[funArgs]`
-  */
   memoize: (fun) => {
     const cache = {};
     return (...funArgs) =>
@@ -26,12 +14,19 @@ const λ = {
         : cache[funArgs];
   },
 
-  // Measures `fun` Function Evaluation Time In Seconds;
   measure: (fun) => {
-    const beginTime = performance.now();
+    const begin = performance.now();
     fun();
-    const ceaseTime = performance.now();
-    return (ceaseTime - beginTime) / 1000;
+    const cease = performance.now();
+    return (cease - begin) / 1000;
+  },
+
+  filter: (collection, predicate) => {
+    const result = [];
+    for (const item of collection) {
+      if (predicate(item)) result.push(item);
+    }
+    return result;
   },
 
   pipe: () => {},
