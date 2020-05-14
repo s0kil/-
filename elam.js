@@ -41,10 +41,10 @@ const λ = {
 
   equals: (a, b) => a === b,
 
-  reduce: (collection, fun, initialValue) => {
+  reduce: (collection, reducer, initialValue) => {
     let stored = initialValue;
     for (const element of collection) {
-      stored = fun(stored, element);
+      stored = reducer(stored, element);
     }
     return stored;
   },
