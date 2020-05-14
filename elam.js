@@ -31,8 +31,8 @@ const λ = {
 
   filter: (collection, predicate) => {
     const result = [];
-    for (const item of collection) {
-      if (predicate(item)) result.push(item);
+    for (const element of collection) {
+      if (predicate(element)) result.push(element);
     }
     return result;
   },
@@ -41,7 +41,13 @@ const λ = {
 
   equals: (a, b) => a === b,
 
-  reduce: () => {},
+  reduce: (collection, fun, initialValue) => {
+    let stored = initialValue;
+    for (const element of collection) {
+      stored = fun(stored, element);
+    }
+    return stored;
+  },
 
   mapReducer: (mapper) => (result, input) => result.concat(mapper(input)),
 
